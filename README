@@ -1,0 +1,3 @@
+An attempt to make phantojs as a shared library so that it can be used in Perl (or Python, Ruby etc) directly. 
+
+Right now it is totally useless & completely unusable. It'll change soon...
