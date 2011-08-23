@@ -1,0 +1,15 @@
+.DS_Store
+*.pro.user*
+*.xcodeproj
+Makefile*
+bin/
+*~
+*.moc
+moc_*
+qrc_*
+*.o
+*.swp
+*.Debug
+*.Release
+*.dll
+*.lib
