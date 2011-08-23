@@ -51,7 +51,7 @@
 
 #include "utils.h"
 #include "consts.h"
-//#include <gifwriter.h>
+#include <gifwriter.h>
 
 class CustomPage;
 class Phantom;
@@ -94,7 +94,7 @@ public:
 public slots:
     void openUrl(const QString &address, const QVariant &op, const QVariantMap &settings);
     QVariant evaluate(const QString &code);
-    //bool render(const QString &fileName);
+    bool render(const QString &fileName);
     bool injectJs(const QString &jsFilePath);
     void _appendScriptElement(const QString &scriptUrl);
     void uploadFile(const QString &selector, const QString &fileName);

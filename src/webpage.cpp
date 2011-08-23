@@ -290,7 +290,7 @@ void WebPage::openUrl(const QString &address, const QVariant &op, const QVariant
 
     m_mainFrame->load(QNetworkRequest(QUrl(address)), networkOp, body);
 }
-/*
+
 bool WebPage::render(const QString &fileName)
 {
     if (m_mainFrame->contentsSize().isEmpty())
@@ -364,7 +364,7 @@ QImage WebPage::renderImage()
 
     return buffer;
 }
-*/
+
 
 #define PHANTOMJS_PDF_DPI 72            // Different defaults. OSX: 72, X11: 75(?), Windows: 96
 
