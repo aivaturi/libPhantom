@@ -1,6 +1,13 @@
 #include "phantom.h"
 
-Phantom::Phantom(QObject *parent)
+Phantom::Phantom(QObject *parent,
+                 bool autoLoadImages,
+                 bool allowPlugins,
+                 bool ignoreSslErrors,
+                 bool diskCaching,
+                 bool localContentAccessToRemote,
+                 QString sysProxy,
+                 QString cookiesFile)
     : QObject(parent)
     , m_terminated(false)
     , m_returnValue(0)
@@ -59,6 +66,10 @@ Phantom::Phantom(QObject *parent)
     m_page->mainFrame()->evaluateJavaScript(bootstrapper);
 }
 
+Phantom::~Phantom()
+{
+}
+
 QStringList Phantom::args() const
 {
     return m_args;
@@ -77,11 +88,6 @@ QString Phantom::outputEncoding() const
 void Phantom::setOutputEncoding(const QString &encoding)
 {
     Registry::terminal().setEncoding(encoding);
-}
-
-bool Phantom::setAllowPlugins(bool b)
-{
-    this->
 }
 
 bool Phantom::execute()
