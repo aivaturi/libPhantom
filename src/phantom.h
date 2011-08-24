@@ -30,8 +30,25 @@ class LIBPHANTOMSHARED_EXPORT Phantom: public QObject
     Q_PROPERTY(QString scriptName READ scriptName)
     Q_PROPERTY(QVariantMap version READ version)
 
+    QString proxy;
+    QString cookieFile;
+    bool autoLoadImages = true;
+    bool allowPlugins = false;
+    bool diskCacheEnabled = false;
+    bool ignoreSslErrors = false;
+    bool localContentAccessToRemote = false;
+
 public:
-    Phantom(QObject *parent = 0);
+    explicit Phantom(QObject *parent = 0,
+                     bool autoLoadImages = true,
+                     bool allowPlugins = false,
+                     bool ignoreSslErrors = false,
+                     bool diskCaching = false,
+                     bool localContentAccessToRemote = false,
+                     QString sysProxy = "",
+                     QString cookiesFile = ""
+                    );
+    virtual ~Phantom();
 
     QStringList args() const;
 
@@ -53,7 +70,7 @@ public:
     void setAutoLoadImages(bool b);
     void setAllowPlugins(bool b);
     void setDiskCaching(bool b);
-    void setIgnoreSSLErrors(bool b);
+    void setIgnoreSslErrors(bool b);
     void setLocalContentAccessToRemote(bool b);
     void setProxy(const QString hostAndPort);
     void setCookiesFile(const QString cookiesFilePath);
